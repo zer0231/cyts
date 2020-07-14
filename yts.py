@@ -43,11 +43,12 @@ def main(argv):
 		#print("here")
 	except getopt.GetoptError:
 		print ('usage:\nyts.py -g <genre> -k <single word keyword> -q <quality 720p,1080p> -m <minimum rating 1-9> -h <show this help>')
+		exit()
 	for opt, arg in opts:
 		#print("here")
 		if opt == '-h':
 			print ('usage:\nyts.py -g <genre> -k <single word keyword> -q <quality 720p,1080p> -m <minimum rating 1-9> -h <show this help>')
-			sys.exit()
+			exit()
 		elif opt in ("-g", "--genre"):
 			genre = arg
 		elif opt in ("-m","--min_"):
@@ -56,6 +57,9 @@ def main(argv):
 			keyword = arg
 		elif opt in ("-q", "--quality"):
 			quality = arg
+		else:
+		    print("Try -h")
+		    exit()
 	checkinternet()
 	search_movie(genre,min_,keyword,quality)
    
